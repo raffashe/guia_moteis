@@ -11,6 +11,7 @@ class AppTextStyles {
       fontSize: adjustedFontSize,
       fontWeight: fontWeight,
       color: color,
+      height: 0.64,
     );
   }
 
@@ -31,6 +32,7 @@ class AppTextStyles {
       fontSize: 24 * (MediaQuery.of(context).size.width / 375),
       fontWeight: FontWeight.w400,
       color: color,
+      height: 0.64,
     );
   }
 
