@@ -2,33 +2,43 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTextStyles {
-  static final TextStyle os12Reg = GoogleFonts.openSans(
-    fontSize: 12,
-    fontWeight: FontWeight.w400,
-  );
+  static TextStyle _getResponsiveTextStyle(double fontSize,
+      FontWeight fontWeight, BuildContext context, Color color) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double adjustedFontSize = fontSize * (screenWidth / 375);
 
-  static final TextStyle os12SemiBold = GoogleFonts.openSans(
-    fontSize: 12,
-    fontWeight: FontWeight.w600,
-  );
+    return GoogleFonts.openSans(
+      fontSize: adjustedFontSize,
+      fontWeight: fontWeight,
+      color: color,
+    );
+  }
 
-  static final TextStyle os16SemiBold = GoogleFonts.openSans(
-    fontSize: 16,
-    fontWeight: FontWeight.w600,
-  );
+  static TextStyle os12Reg(BuildContext context, {required Color color}) {
+    return _getResponsiveTextStyle(12, FontWeight.w400, context, color);
+  }
 
-  static final TextStyle os24Reg = GoogleFonts.openSans(
-    fontSize: 24,
-    fontWeight: FontWeight.w400,
-  );
+  static TextStyle os12SemiBold(BuildContext context, {required Color color}) {
+    return _getResponsiveTextStyle(12, FontWeight.w600, context, color);
+  }
 
-  static final TextStyle os16Reg = GoogleFonts.openSans(
-    fontSize: 16,
-    fontWeight: FontWeight.w400,
-  );
+  static TextStyle os16SemiBold(BuildContext context, {required Color color}) {
+    return _getResponsiveTextStyle(16, FontWeight.w600, context, color);
+  }
 
-  static final TextStyle os10SemiBold = GoogleFonts.openSans(
-    fontSize: 10,
-    fontWeight: FontWeight.w600,
-  );
+  static TextStyle os24Reg(BuildContext context, {required Color color}) {
+    return GoogleFonts.openSans(
+      fontSize: 24 * (MediaQuery.of(context).size.width / 375),
+      fontWeight: FontWeight.w400,
+      color: color,
+    );
+  }
+
+  static TextStyle os16Reg(BuildContext context, {required Color color}) {
+    return _getResponsiveTextStyle(16, FontWeight.w400, context, color);
+  }
+
+  static TextStyle os10SemiBold(BuildContext context, {required Color color}) {
+    return _getResponsiveTextStyle(10, FontWeight.w600, context, color);
+  }
 }

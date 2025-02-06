@@ -18,5 +18,5 @@ class AppColors {
 
   // Favorite icon colors
   static const Color favUnselected = Color(0xFFBFBFBF);
-  static const Color favSelected = Color(0xFFD11621);
+  static const Color favSelected = Color(0xFFB8000C);
 }
