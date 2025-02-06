@@ -9,6 +9,7 @@ class AppColors {
   static const Color progressInactive = Color(0xFFBFBFBF);
   static const Color progressActive = Color(0xFF959595);
   static const Color iconScore = Color(0xFFFFB200);
+  static const Color dash = Color(0xFFFF999E);
 
   // Font colors
   static const Color fontPrimary = Color(0xFF373737);
