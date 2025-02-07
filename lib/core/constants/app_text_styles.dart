@@ -27,9 +27,9 @@ class AppTextStyles {
     return _getResponsiveTextStyle(16, FontWeight.w600, context, color);
   }
 
-  static TextStyle os24Reg(BuildContext context, {required Color color}) {
+  static TextStyle os20Reg(BuildContext context, {required Color color}) {
     return GoogleFonts.openSans(
-      fontSize: 24 * (MediaQuery.of(context).size.width / 375),
+      fontSize: 20 * (MediaQuery.of(context).size.width / 375),
       fontWeight: FontWeight.w400,
       color: color,
       height: 0.64,

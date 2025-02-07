@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:guia_moteis/core/constants/app_colors.dart';
-import 'package:guia_moteis/presentation/widgets/header_widget.dart';
+import 'package:guia_moteis/presentation/widgets/hotel_header_widget.dart';
 import 'package:guia_moteis/presentation/widgets/location_widget.dart';
 import 'package:guia_moteis/presentation/widgets/product_card_gallery_widget.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
 
 import '../../data/services/provider_service.dart';
+import '../widgets/filter_widget.dart';
+import '../widgets/header_widget.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -103,6 +105,46 @@ class _HomePageState extends ConsumerState<HomePage> {
                         const Center(child: CircularProgressIndicator()),
                     error: (error, stackTrace) => Center(
                       child: Text('Failed to load hotel data: $error'),
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      color: AppColors.bgModalSecondary,
+                      child: SingleChildScrollView(
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 20),
+                          child: Column(
+                            children: [
+                              FilterWidget(),
+                              Divider(
+                                height: 20,
+                                color: AppColors.bgModalMain,
+                              ),
+                              hotelData.when(
+                                data: (hotel) {
+                                  return Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 15, left: 30, right: 30),
+                                    child: HotelHeaderWidget(
+                                      hotel: hotel,
+                                      onFavoritePressed: () {
+                                        logger.d(
+                                            'Favorito pressionado para: ${hotel.name}');
+                                      },
+                                    ),
+                                  );
+                                },
+                                loading: () =>
+                                    const CircularProgressIndicator(),
+                                error: (error, stackTrace) => Center(
+                                  child:
+                                      Text('Failed to load hotel data: $error'),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ],
