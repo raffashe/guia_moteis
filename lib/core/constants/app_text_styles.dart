@@ -11,7 +11,7 @@ class AppTextStyles {
       fontSize: adjustedFontSize,
       fontWeight: fontWeight,
       color: color,
-      height: 0.64,
+      height: 1.2,
     );
   }
 
@@ -42,5 +42,9 @@ class AppTextStyles {
 
   static TextStyle os10SemiBold(BuildContext context, {required Color color}) {
     return _getResponsiveTextStyle(10, FontWeight.w600, context, color);
+  }
+
+  static TextStyle os16Bold(BuildContext context, {required Color color}) {
+    return _getResponsiveTextStyle(16, FontWeight.bold, context, color);
   }
 }
