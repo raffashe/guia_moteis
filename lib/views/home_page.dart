@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
 
-import '../../core/constants/app_colors.dart';
-import '../widgets/elements/header_widget.dart';
-import '../widgets/elements/location_widget.dart';
-import '../widgets/home_content.dart';
+import '../core/constants/app_colors.dart';
+import 'widgets/elements/header_widget.dart';
+import 'widgets/elements/location_widget.dart';
+import 'widgets/home_content.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});

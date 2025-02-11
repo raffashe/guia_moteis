@@ -4,7 +4,7 @@ import '../../../../core/constants/app_colors.dart';
 
 import 'package:logger/logger.dart';
 
-import '../../viewmodels/hotel_provider.dart';
+import '../../../viewmodels/hotel_provider.dart';
 import 'filter_widget.dart';
 import '../hotels_details/hotel_header_widget.dart';
 import '../suite_details/suite_list_widgets.dart';

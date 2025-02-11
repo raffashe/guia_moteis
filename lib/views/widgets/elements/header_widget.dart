@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:guia_moteis/presentation/widgets/elements/segmented_controls_widget.dart';
+import 'package:guia_moteis/views/widgets/elements/segmented_controls_widget.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({super.key});
