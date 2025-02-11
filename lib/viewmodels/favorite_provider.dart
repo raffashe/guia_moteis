@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../data/models/hotel_model.dart';
+import '../data/models/hotel_model.dart';
 
 final favoriteHotelsProvider =
     StateNotifierProvider<FavoriteHotelsNotifier, List<Hotel>>((ref) {

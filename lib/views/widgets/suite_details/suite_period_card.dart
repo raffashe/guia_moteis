@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:guia_moteis/data/models/suite_model.dart';
-import 'package:guia_moteis/presentation/widgets/suite_details/period_card_widget.dart';
+import 'package:guia_moteis/views/widgets/suite_details/period_card_widget.dart';
 
 class SuitePeriodListWidget extends StatelessWidget {
   final Suite suite;

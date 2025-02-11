@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../data/models/suite_model.dart';
+import '../data/models/suite_model.dart';
 import 'hotel_provider.dart';
 
 final suiteProvider = Provider<List<Suite>>((ref) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../viewmodels/hotel_provider.dart';
+import '../../viewmodels/hotel_provider.dart';
 import 'elements/carousel_widget.dart';
 import 'filter_details/filter_and_list_widget.dart';
 

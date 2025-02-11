@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../data/models/hotel_model.dart';
-import '../../data/repositories/hotel_repository.dart';
+import '../data/models/hotel_model.dart';
+import '../data/repositories/hotel_repository.dart';
 
 final hotelRepositoryProvider = Provider<HotelRepository>((ref) {
   return HotelRepository();

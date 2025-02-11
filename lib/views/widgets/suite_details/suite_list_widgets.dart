@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:guia_moteis/presentation/widgets/suite_details/suite_cards_widgets.dart';
-import 'package:guia_moteis/presentation/widgets/suite_details/suite_category_item_widget.dart';
-import 'package:guia_moteis/presentation/widgets/suite_details/suite_period_card.dart';
+import 'package:guia_moteis/views/widgets/suite_details/suite_cards_widgets.dart';
+import 'package:guia_moteis/views/widgets/suite_details/suite_category_item_widget.dart';
+import 'package:guia_moteis/views/widgets/suite_details/suite_period_card.dart';
 
-import '../../viewmodels/hotel_provider.dart';
+import '../../../viewmodels/hotel_provider.dart';
 
 class SuiteListWidget extends ConsumerWidget {
   final VoidCallback onSuitePressed;
