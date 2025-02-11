@@ -53,7 +53,12 @@ class _FilterAndListWidgetState extends ConsumerState<FilterAndListWidget> {
                   ],
                 );
               },
-              loading: () => const CircularProgressIndicator(),
+              loading: () => const Center(
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                      Color(0xFFB0BEC5)), // Cinza claro
+                ),
+              ),
               error: (error, stackTrace) =>
                   Center(child: Text('Failed to load hotel data: $error')),
             ),

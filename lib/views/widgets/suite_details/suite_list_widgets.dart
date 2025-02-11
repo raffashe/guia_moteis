@@ -20,7 +20,7 @@ class SuiteListWidget extends ConsumerWidget {
       data: (hotel) {
         return CarouselSlider(
           options: CarouselOptions(
-            height: 700,
+            height: 800,
             enlargeCenterPage: true,
             enableInfiniteScroll: true,
             viewportFraction: 0.98,
@@ -45,7 +45,12 @@ class SuiteListWidget extends ConsumerWidget {
           }).toList(),
         );
       },
-      loading: () => const Center(child: CircularProgressIndicator()),
+      loading: () => const Center(
+        child: CircularProgressIndicator(
+          valueColor:
+              AlwaysStoppedAnimation<Color>(Color(0xFFB0BEC5)), // Cinza claro
+        ),
+      ),
       error: (error, stackTrace) => Center(child: Text('Erro: $error')),
     );
   }

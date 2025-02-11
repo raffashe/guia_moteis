@@ -1,6 +1,6 @@
-import 'category_item_model.dart';
-import 'item_model.dart';
-import 'period_model.dart';
+import 'package:guia_moteis/data/models/category_item_model.dart';
+import 'package:guia_moteis/data/models/item_model.dart';
+import 'package:guia_moteis/data/models/period_model.dart';
 
 class Suite {
   final String name;
@@ -25,13 +25,13 @@ class Suite {
     return Suite(
       name: json['nome'],
       quantity: json['qtd'],
-      showAvailableQuantity: json['exibirQtdDisponiveis'],
+      showAvailableQuantity: json['exibirQtdDisponiveis'] ?? false,
       photos: List<String>.from(json['fotos']),
-      items: List<Item>.from(json['itens'].map((x) => Item.fromJson(x))),
+      items: List<Item>.from(json['itens']?.map((x) => Item.fromJson(x)) ?? []),
       categoryItems: List<CategoryItem>.from(
-          json['categoriaItens'].map((x) => CategoryItem.fromJson(x))),
-      periods:
-          List<Period>.from(json['periodos'].map((x) => Period.fromJson(x))),
+          json['categoriaItens']?.map((x) => CategoryItem.fromJson(x)) ?? []),
+      periods: List<Period>.from(
+          json['periodos']?.map((x) => Period.fromJson(x)) ?? []),
     );
   }
 }

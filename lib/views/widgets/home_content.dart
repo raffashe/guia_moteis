@@ -33,7 +33,11 @@ class _HomeContentState extends ConsumerState<HomeContent> {
                   ],
                 );
               },
-              loading: () => const Center(child: CircularProgressIndicator()),
+              loading: () => const Center(
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(Color(0xFFB0BEC5)),
+                ),
+              ),
               error: (error, stackTrace) =>
                   Center(child: Text('Failed to load hotel data: $error')),
             ),
