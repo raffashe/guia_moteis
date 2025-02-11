@@ -43,12 +43,59 @@ class HotelHeaderWidget extends StatelessWidget {
                         color: AppColors.fontDark),
                     overflow: TextOverflow.ellipsis,
                   ),
-                  SizedBox(height: 6),
+                  const SizedBox(height: 6),
                   Text(
-                    '${hotel.distance.toStringAsFixed(1)} km • ${hotel.neighborhood}',
+                    '${hotel.distance != null ? '${hotel.distance!.toStringAsFixed(1)} km' : 'N/A'} • ${hotel.neighborhood}',
                     style: AppTextStyles.os12Reg(context,
                         color: AppColors.fontSecondary),
                     overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(height: 6),
+                  Row(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 4),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.amber),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.star,
+                                color: Colors.amber, size: 14),
+                            const SizedBox(width: 4),
+                            Text(
+                              (hotel.averageRating != null
+                                  ? hotel.averageRating!.toStringAsFixed(1)
+                                  : "N/A"),
+                              style: AppTextStyles.os10SemiBold(context,
+                                  color: AppColors.fontSecondary),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Row(
+                        children: [
+                          Text(
+                            '${hotel.reviewCount} avaliações',
+                            style: AppTextStyles.os10SemiBold(context,
+                                color: AppColors.fontSecondary),
+                          ),
+                          const SizedBox(width: 4),
+                          SvgPicture.asset(
+                            'assets/arrow_down.svg',
+                            width: 12,
+                            height: 12,
+                            colorFilter: ColorFilter.mode(
+                              AppColors.fontSecondary,
+                              BlendMode.srcIn,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ],
               ),
