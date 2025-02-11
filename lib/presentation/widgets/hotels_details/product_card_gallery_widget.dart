@@ -4,8 +4,8 @@ import 'package:guia_moteis/core/constants/app_text_styles.dart';
 import 'package:logger/logger.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../data/models/hotel_model.dart';
-import '../../data/models/period_model.dart';
+import '../../../data/models/hotel_model.dart';
+import '../../../data/models/period_model.dart';
 
 class ProductCardGalleryWidget extends StatelessWidget {
   final Hotel hotel;
