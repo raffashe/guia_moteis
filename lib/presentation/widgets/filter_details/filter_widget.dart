@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:guia_moteis/core/constants/app_colors.dart';
 import 'package:guia_moteis/core/constants/app_text_styles.dart';
-import '../../core/constants/app_filter.dart';
+import '../../../core/constants/app_filter.dart';
 
 class FilterWidget extends StatefulWidget {
   const FilterWidget({super.key});

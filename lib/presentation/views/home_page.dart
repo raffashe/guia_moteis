@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:guia_moteis/core/constants/app_colors.dart';
-import 'package:guia_moteis/presentation/widgets/hotel_header_widget.dart';
-import 'package:guia_moteis/presentation/widgets/location_widget.dart';
-import 'package:guia_moteis/presentation/widgets/product_card_gallery_widget.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
 
-import '../../data/services/provider_service.dart';
-import '../widgets/filter_widget.dart';
-import '../widgets/header_widget.dart';
+import '../../core/constants/app_colors.dart';
+import '../widgets/elements/header_widget.dart';
+import '../widgets/elements/location_widget.dart';
+import '../widgets/home_content.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -19,13 +15,10 @@ class HomePage extends ConsumerStatefulWidget {
 }
 
 class _HomePageState extends ConsumerState<HomePage> {
-  int _currentIndex = 0;
+  final Logger logger = Logger();
 
   @override
   Widget build(BuildContext context) {
-    final hotelData = ref.watch(hotelProvider);
-    final Logger logger = Logger();
-
     logger.i('HomePage loaded');
 
     return Scaffold(
@@ -39,7 +32,6 @@ class _HomePageState extends ConsumerState<HomePage> {
           ),
           Expanded(
             child: Container(
-              padding: const EdgeInsets.only(top: 10),
               decoration: const BoxDecoration(
                 color: AppColors.bgModalMain,
                 borderRadius: BorderRadius.only(
@@ -47,108 +39,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                   topRight: Radius.circular(20),
                 ),
               ),
-              child: Column(
-                children: [
-                  hotelData.when(
-                    data: (hotel) {
-                      return Column(
-                        children: [
-                          CarouselSlider(
-                            options: CarouselOptions(
-                              autoPlay: true,
-                              enlargeCenterPage: true,
-                              aspectRatio: 20 / 9,
-                              viewportFraction: 0.9,
-                              onPageChanged: (index, reason) {
-                                setState(() {
-                                  _currentIndex = index;
-                                });
-                              },
-                            ),
-                            items: hotel.suites.map((suite) {
-                              return Builder(
-                                builder: (BuildContext context) {
-                                  return ProductCardGalleryWidget(
-                                    hotel: hotel,
-                                    period: suite.periods.first,
-                                    onPressed: () {
-                                      logger.d(
-                                          'Reservar button pressed for: ${hotel.name}');
-                                    },
-                                  );
-                                },
-                              );
-                            }).toList(),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: hotel.suites.map((suite) {
-                              int index = hotel.suites.indexOf(suite);
-                              return Container(
-                                width: 8.0,
-                                height: 8.0,
-                                margin: const EdgeInsets.symmetric(
-                                    vertical: 10.0, horizontal: 2.0),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: _currentIndex == index
-                                      ? AppColors.fontSecondary
-                                      : Colors.grey,
-                                ),
-                              );
-                            }).toList(),
-                          ),
-                        ],
-                      );
-                    },
-                    loading: () =>
-                        const Center(child: CircularProgressIndicator()),
-                    error: (error, stackTrace) => Center(
-                      child: Text('Failed to load hotel data: $error'),
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      color: AppColors.bgModalSecondary,
-                      child: SingleChildScrollView(
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 20),
-                          child: Column(
-                            children: [
-                              FilterWidget(),
-                              Divider(
-                                height: 20,
-                                color: AppColors.bgModalMain,
-                              ),
-                              hotelData.when(
-                                data: (hotel) {
-                                  return Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 15, left: 30, right: 30),
-                                    child: HotelHeaderWidget(
-                                      hotel: hotel,
-                                      onFavoritePressed: () {
-                                        logger.d(
-                                            'Favorito pressionado para: ${hotel.name}');
-                                      },
-                                    ),
-                                  );
-                                },
-                                loading: () =>
-                                    const CircularProgressIndicator(),
-                                error: (error, stackTrace) => Center(
-                                  child:
-                                      Text('Failed to load hotel data: $error'),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              child: const HomeContent(),
             ),
           ),
         ],

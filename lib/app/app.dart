@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../presentation/views/home_page.dart';
+import 'package:guia_moteis/presentation/views/home_page.dart';
 
 class AppGuiaMoteis extends StatelessWidget {
   const AppGuiaMoteis({super.key});
