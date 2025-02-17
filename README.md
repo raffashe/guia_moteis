@@ -65,6 +65,11 @@ GUIA_MOTEIS/
 
 Testes unitários estão implementados para cobrir toda a lógica do app, incluindo modelos, repositórios e provedores. O foco é garantir a integridade dos dados e o comportamento esperado dos componentes. 
 
+## 🚀 Video do projeto
+
+[Assista ao vídeo do projeto clicando aqui](https://drive.google.com/file/d/1Vg5WS256qFEzzyJqNeS_w10eGYGxwRQW/view?usp=drive_link)
+
+
 ## 🚀 Como Rodar o Projeto
 
 1. Clone o repositório:
